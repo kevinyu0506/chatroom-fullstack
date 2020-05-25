@@ -1,0 +1,15 @@
+.chat_window{
+    height: calc(100vh - 120px);
+}
+ul.messages{
+    height: calc(100vh - 250px);
+}
+
+ul.messages li.message .text {
+    color: black !important;
+    font-weight: inherit;
+}
+
+#msg_input{
+    color: black;
+}

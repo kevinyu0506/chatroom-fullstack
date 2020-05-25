@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import TextBox from './component/TextBox.js';
-import SendButton from './component/SendButton.js';
+import TextBox from './TextBox.js';
+import SendButton from './SendButton.js';
 
 class TextBoxContainer extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     render() {
         return (
