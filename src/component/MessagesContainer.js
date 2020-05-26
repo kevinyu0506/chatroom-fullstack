@@ -48,7 +48,8 @@ class MessagesContainer extends Component{
 
         this.props.messages.forEach((message, index) => {
             rows.push(
-                <MessageBox index={index}
+                <MessageBox key={index}
+                            // index={index}
                             message={message["message"]}
                             appearance={message["isbotmessage"] ? "left": "right"}/>
             );

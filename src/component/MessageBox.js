@@ -7,7 +7,7 @@ class MessageBox extends Component{
     // }
 
     render(){
-        // const index = this.props.index;
+        // const index = this.props.key;
         const appearance = this.props.appearance;
         const message = this.props.message;
 
@@ -15,7 +15,7 @@ class MessageBox extends Component{
             <li className={`message ${appearance} appeared`}>
                 <Avatar></Avatar>
                 <div className="text_wrapper">
-                    <div className="text">{message}</div>
+        <div className="text">{message}</div>
                 </div>
             </li>
       );

@@ -8,6 +8,8 @@ class TextBoxContainer extends Component {
     // }
 
     render() {
+        // const current_message = this.state.current_message;
+
         return (
             <div className="bottom_wrapper clearfix">
                 <TextBox/>
