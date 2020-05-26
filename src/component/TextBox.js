@@ -5,23 +5,18 @@ class TextBox extends Component{
         super(props);
         // this.addMessageBox = this.addMessageBox.bind(this);
         this._handleKeyPress = this._handleKeyPress.bind(this);
-        this.onChange = this.onChange.bind(this);
-        this.state = {
-            current_message: ""
-        };
+        this.handleTextBoxChange = this.handleTextBoxChange.bind(this);
     }
 
-    onChange(e) {
-        this.setState({
-            current_message: e.target.value
-        });
+    handleTextBoxChange(e) {
+        this.props.onTextBoxChange(e.target.value);
     }
 
     // We need to add a new message to MessagesContainer component
     _handleKeyPress(e) {
         if(e.key === "Enter"){
             console.log("Enter key pressed.");
-            console.log(`Current message: ${this.state.current_message}`)
+            console.log(`Current message: ${this.props.current_message}`)
         }
         // this.addMessageBox(enter_pressed)
     }
@@ -55,15 +50,14 @@ class TextBox extends Component{
     // }
 
     render(){
-        const current_message = this.state.current_message;
-
+        const current_message = this.props.current_message;
         return(
             <div className="message_input_wrapper">
                 <input id="msg_input" 
                        className="message_input" 
                        placeholder="Type your messages here..."
                        value={current_message} 
-                       onChange={this.onChange}
+                       onChange={this.handleTextBoxChange}
                        onKeyDown={this._handleKeyPress} /> 
             </div>
         );

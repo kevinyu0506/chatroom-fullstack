@@ -7,8 +7,7 @@ class SendButton extends Component{
     }
 
     handleClick() {
-        console.log("Send button clicked.");
-        // this.addMessageBox();
+        this.props.onButtonClick();
     }
 
     render() {
