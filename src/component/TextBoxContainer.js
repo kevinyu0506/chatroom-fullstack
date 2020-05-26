@@ -6,33 +6,31 @@ class TextBoxContainer extends Component {
     constructor(props) {
         super(props);
         this.handleTextBoxChange = this.handleTextBoxChange.bind(this);
-        this.handleSendButtonClick = this.handleSendButtonClick.bind(this);
-        this.state = {
-            current_message: ""
-        }
+        this.handleTextBoxEnter = this.handleTextBoxEnter.bind(this);
     }
 
+    // Notify current message changed
     handleTextBoxChange(text) {
-        this.setState({
-            current_message: text
-        });
+        this.props.onTextBoxChange(text);
     }
 
-    handleSendButtonClick() {
-        console.log("Send button clicked.")
-        console.log(`Current message: ${this.state.current_message}`)
+    // Notify message sent
+    handleTextBoxEnter() {
+        console.log(`Current message: ${this.props.current_message}`)
+        this.props.onTextBoxEnter();
     }
 
     render() {
-        const current_message = this.state.current_message;
+        const current_message = this.props.current_message;
         return (
             <div className="bottom_wrapper clearfix">
                 <TextBox 
                     current_message={current_message}
-                    onTextBoxChange={this.handleTextBoxChange}/>
+                    onTextBoxChange={this.handleTextBoxChange}
+                    onTextBoxEnter={this.handleTextBoxEnter}/>
                 <SendButton
                     current_message={current_message}
-                    onButtonClick={this.handleSendButtonClick}/>
+                    onButtonClick={this.handleTextBoxEnter}/>
             </div>
         );
     }

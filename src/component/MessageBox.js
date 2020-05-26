@@ -15,7 +15,7 @@ class MessageBox extends Component{
             <li className={`message ${appearance} appeared`}>
                 <Avatar></Avatar>
                 <div className="text_wrapper">
-        <div className="text">{message}</div>
+                    <div className="text">{message}</div>
                 </div>
             </li>
       );

@@ -6,12 +6,17 @@ class MessagesContainer extends Component{
     //     super(props);
     //     this.createBotMessages = this.createBotMessages.bind(this);
     //     this.addMessageBox = this.addMessageBox.bind(this);
+    //     this.state = {
+    //         messages: []
+    //     }
     // }
 
     // createBotMessages(){
-    //     console.log(this.state.messages);
+    //     console.log("MessageContainer: createBotMessages()");
     //     return this.state.messages.map((message, index) =>
-    //     <MessageBox key={index} message={message["message"]} appearance={message["isbotmessage"] ? "left": "right"}/>
+    //     <MessageBox key={index}
+    //         message={message["message"]}
+    //         appearance={message["isbotmessage"] ? "left": "right"}/>
     //     );
     // }
 
@@ -45,7 +50,6 @@ class MessagesContainer extends Component{
 
     render() {
         const rows = [];
-
         this.props.messages.forEach((message, index) => {
             rows.push(
                 <MessageBox key={index}
