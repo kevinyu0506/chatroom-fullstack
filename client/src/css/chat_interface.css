@@ -76,6 +76,7 @@
   }
   ul.messages li.message.left .text_wrapper {
     background-color: #ffe6cb;
+    width: fit-content;
     margin-left: 20px;
   }
   ul.messages li.message.left .text_wrapper::after, .messages .message.left .text_wrapper::before {
@@ -91,6 +92,7 @@
   }
   ul.messages li.message.right .text_wrapper {
     background-color: #c7eafc;
+    width: fit-content;
     margin-right: 20px;
     float: right;
   }
@@ -110,6 +112,7 @@
   ul.messages li.message.appeared {
     opacity: 1;
   }
+
   ul.messages li.message .avatar {
     width: 60px;
     height: 60px;

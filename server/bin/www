@@ -43,13 +43,12 @@ var io = require('socket.io').listen(server);
 // https://medium.com/enjoy-life-enjoy-coding/react-%E5%9C%A8-react-%E4%B8%AD%E4%BD%BF%E7%94%A8-websocket-feat-socket-io-%E5%9F%BA%E6%9C%AC%E6%95%99%E5%AD%B8-2e3483ad5c80
 // 監聽 Server 連線後的所有事件，並捕捉事件 socket 執行
 io.on('connection', function(socket) {
-  //經過連線後在 console 中印出訊息
-  console.log('client connected!')
-  //監聽透過 connection 傳進來的事件
-  socket.on('getMessage', message => {
-    console.log(`get message sent by user: ${message}`)
-    //回傳 message 給發送訊息的 Client
-    socket.emit('getMessage', `server received: ${message}`)
+  console.log('client connected!');
+
+  //監聽透過 connection 傳進來的 sendMessage 事件
+  socket.on('sendMessage', message => {
+    //回傳 message 給其他所有正在連線中的 Client
+    socket.broadcast.emit('messageReceived', message)
   })
 });
 // ======================================
