@@ -8,6 +8,13 @@ var app = require('../app');
 var debug = require('debug')('server:server');
 var http = require('http');
 
+// ======================================
+// https://www.freecodecamp.org/news/create-a-react-frontend-a-node-express-backend-and-connect-them-together-c5798926047c/
+var cors = require('cors');
+app.use(cors());
+// ======================================
+
+
 /**
  * Get port from environment and store in Express.
  */
@@ -28,6 +35,24 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+// ======================================
+var io = require('socket.io').listen(server);
+
+// https://itnext.io/build-a-group-chat-app-in-30-lines-using-node-js-15bfe7a2417b
+// https://medium.com/enjoy-life-enjoy-coding/react-%E5%9C%A8-react-%E4%B8%AD%E4%BD%BF%E7%94%A8-websocket-feat-socket-io-%E5%9F%BA%E6%9C%AC%E6%95%99%E5%AD%B8-2e3483ad5c80
+// 監聽 Server 連線後的所有事件，並捕捉事件 socket 執行
+io.on('connection', function(socket) {
+  //經過連線後在 console 中印出訊息
+  console.log('client connected!')
+  //監聽透過 connection 傳進來的事件
+  socket.on('getMessage', message => {
+    console.log(`get message sent by user: ${message}`)
+    //回傳 message 給發送訊息的 Client
+    socket.emit('getMessage', `server received: ${message}`)
+  })
+});
+// ======================================
 
 /**
  * Normalize a port into a number, string, or false.

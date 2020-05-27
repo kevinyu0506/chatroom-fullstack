@@ -16,7 +16,7 @@ class TextBoxContainer extends Component {
 
     // Notify message sent
     handleTextBoxEnter() {
-        console.log(`Current message: ${this.props.current_message}`)
+        // console.log(`Current message: ${this.props.current_message}`)
         this.props.onTextBoxEnter();
     }
 
