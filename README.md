@@ -4,4 +4,4 @@
 ![demo-image]
 
 <!-- Markdown link & img dfn's -->
-[demo-image]: ./img/demo.png
+[demo-image]: ./client/img/demo.png
