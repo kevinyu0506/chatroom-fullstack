@@ -66,9 +66,11 @@ class MessagesContainer extends Component{
             // <ul classNane="messages">
             //     <MessageBox key={index} message={message["message"]} appearance={message["isbotmessage"] ? "left": "right"}/>
             // </ul>
-            <ul className="messages">
-                 {rows}
-            </ul>
+            <div className="nes-container">
+                <div className="message-list">
+                    {rows}
+                </div>
+            </div>
         );
     }
 }

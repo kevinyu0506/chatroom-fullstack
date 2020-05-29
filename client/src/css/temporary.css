@@ -1,4 +1,4 @@
-.chat_window{
+/* .chat_window{
     height: calc(100vh - 120px);
 }
 ul.messages{
@@ -13,4 +13,26 @@ ul.messages li.message .text {
 
 #msg_input{
     color: black;
+} */
+
+.message-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-list > .message {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.message-list > .message.-left {
+    align-self: flex-start;
+}
+
+.message-list > .message.-right {
+    align-self: flex-end;
+}
+
+.message-list > .message > .nes-balloon {
+    max-width: 550px;
 }

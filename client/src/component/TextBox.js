@@ -22,7 +22,7 @@ class TextBox extends Component{
         return(
             <div className="message_input_wrapper">
                 <input id="msg_input" 
-                       className="message_input" 
+                       className="nes-input" 
                        placeholder="Type your messages here..."
                        value={current_message} 
                        onChange={this.handleTextBoxChange}

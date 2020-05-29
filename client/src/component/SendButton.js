@@ -12,9 +12,9 @@ class SendButton extends Component{
 
     render() {
         return (
-            <div className="send_message"
+            <div className="nes-btn is-primary"
                  onClick={this.handleClick}> 
-                <div className="text">send</div>
+                send
             </div>
         );
     }

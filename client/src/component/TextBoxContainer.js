@@ -23,7 +23,7 @@ class TextBoxContainer extends Component {
     render() {
         const current_message = this.props.current_message;
         return (
-            <div className="bottom_wrapper clearfix">
+            <div className="nes-field is-inline">
                 <TextBox 
                     current_message={current_message}
                     onTextBoxChange={this.handleTextBoxChange}

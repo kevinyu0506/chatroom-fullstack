@@ -12,12 +12,13 @@ class MessageBox extends Component{
         const message = this.props.message;
 
         return(
-            <li className={`message ${appearance} appeared`}>
-                <Avatar></Avatar>
-                <div className="text_wrapper">
-                    <div className="text">{message}</div>
+            <div className={`message -${appearance}`}>
+                {/* <Avatar></Avatar> */}
+                {/* <i class="nes-bcrikko"></i> */}
+                <div className={`nes-balloon from-${appearance}`}>
+                    <p>{message}</p>
                 </div>
-            </li>
+            </div>
       );
     }
 }

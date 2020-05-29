@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
-import './css/chat_interface.css';
+// import './App.css';
+// import './css/chat_interface.css';
+
+import 'nes.css/css/nes.css';
 import './css/temporary.css';
 
 import MessagesContainer from './component/MessagesContainer.js';
@@ -79,7 +81,7 @@ class ChatApp extends Component {
 
     render() {
         return (
-            <div className="chat_window">
+            <div className="nes-container">
                 <MessagesContainer messages={this.state.messages}
                                    current_message={this.state.current_message}/>
                 <TextBoxContainer onTextBoxEnter={this.handleTextBoxEnter}
