@@ -36,8 +36,9 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-// ======================================
+// ================================================================================
 var io = require('socket.io').listen(server);
+var names = {};
 
 // https://itnext.io/build-a-group-chat-app-in-30-lines-using-node-js-15bfe7a2417b
 // https://medium.com/enjoy-life-enjoy-coding/react-%E5%9C%A8-react-%E4%B8%AD%E4%BD%BF%E7%94%A8-websocket-feat-socket-io-%E5%9F%BA%E6%9C%AC%E6%95%99%E5%AD%B8-2e3483ad5c80
@@ -45,13 +46,26 @@ var io = require('socket.io').listen(server);
 io.on('connection', function(socket) {
   console.log('client connected!');
 
+  //監聽透過 connection 傳進來的 setName 事件
+  socket.on('setName', name => {
+    console.log(`setName event received.`)
+    if(typeof names[name] === 'undefined') {
+ 			names[name] = {count: 0};
+ 			socket.emit('setNameSucceed', name);
+ 		} else {
+ 			names[name].count++;
+ 			let t = name + '' + names[name].count;
+ 			socket.emit('setNameFailed', t);
+ 		}
+  })
+
   //監聽透過 connection 傳進來的 sendMessage 事件
   socket.on('sendMessage', message => {
     //回傳 message 給其他所有正在連線中的 Client
     socket.broadcast.emit('messageReceived', message)
   })
 });
-// ======================================
+// ================================================================================
 
 /**
  * Normalize a port into a number, string, or false.
