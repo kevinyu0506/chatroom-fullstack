@@ -48,11 +48,13 @@ io.on('connection', function(socket) {
 
   //監聽透過 connection 傳進來的 setName 事件
   socket.on('setName', name => {
-    console.log(`setName event received.`)
+    console.log(`setName event received, name: ${name}`)
     if(typeof names[name] === 'undefined') {
+      console.log(`a`);
  			names[name] = {count: 0};
  			socket.emit('setNameSucceed', name);
  		} else {
+      console.log(`b`);
  			names[name].count++;
  			let t = name + '' + names[name].count;
  			socket.emit('setNameFailed', t);
