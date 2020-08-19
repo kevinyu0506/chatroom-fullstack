@@ -26,8 +26,11 @@ class ChatApp extends Component {
 
     // https://medium.com/enjoy-life-enjoy-coding/react-%E5%9C%A8-react-%E4%B8%AD%E4%BD%BF%E7%94%A8-websocket-feat-socket-io-%E5%9F%BA%E6%9C%AC%E6%95%99%E5%AD%B8-2e3483ad5c80
     componentDidMount() {
+        let person = prompt("Please enter your name", "Harry Potter");
+
         this.setState({
-            ws: webSocket('http://localhost:9000')
+            ws: webSocket('http://localhost:9000'),
+            name: person
         })
     }
 
@@ -37,13 +40,6 @@ class ChatApp extends Component {
         if (!this.isInit) {
             this.isInit = true;
 
-            let person = prompt("Please enter your name", "Harry Potter");
-            alert(`your name: ${person}`)
-            
-            this.setState({
-                name: person
-            })
-
             socket.emit('setName', this.state.name);
             
             // Listen on message received event
@@ -51,12 +47,12 @@ class ChatApp extends Component {
                 this.createMessage(message);
             })
 
-            socket.on('setNameSucceed', message => {
-                alert(message);
+            socket.on('setNameSucceed', () => {
+                alert('set name succeed');
             })
 
-            socket.on('setNameFailed', message => {
-                alert(message);
+            socket.on('setNameFailed', () => {
+                alert('set name failed');
             })
         }
     }

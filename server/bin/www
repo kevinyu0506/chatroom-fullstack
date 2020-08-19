@@ -50,14 +50,11 @@ io.on('connection', function(socket) {
   socket.on('setName', name => {
     console.log(`setName event received, name: ${name}`)
     if(typeof names[name] === 'undefined') {
-      console.log(`a`);
  			names[name] = {count: 0};
- 			socket.emit('setNameSucceed', name);
+ 			socket.emit('setNameSucceed');
  		} else {
-      console.log(`b`);
  			names[name].count++;
- 			let t = name + '' + names[name].count;
- 			socket.emit('setNameFailed', t);
+ 			socket.emit('setNameFailed');
  		}
   })
 
