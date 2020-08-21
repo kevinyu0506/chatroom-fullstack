@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 import Avatar from './Avatar.js';
 
 class MessageBox extends Component{
-    // constructor(props) {
-    //     super(props);
-    // }
-
     render(){
-        // const index = this.props.key;
         const appearance = this.props.appearance;
         const message = this.props.message;
+        const name = this.props.name;
 
         return(
             <li className={`message ${appearance} appeared`}>

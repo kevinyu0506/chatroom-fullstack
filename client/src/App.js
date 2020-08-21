@@ -95,7 +95,8 @@ class ChatApp extends Component {
         return (
             <div className="chat_window">
                 <MessagesContainer messages={this.state.messages}
-                                   current_message={this.state.current_message}/>
+                                   current_message={this.state.current_message}
+                                   name={this.state.name}/>
                 <TextBoxContainer onTextBoxEnter={this.handleTextBoxEnter}
                                   onTextBoxChange={this.handleTextBoxChange}
                                   current_message={this.state.current_message}/>
