@@ -1,0 +1,21 @@
+version: '3'
+services:
+    nginx:
+        build: .
+        image: "chatroom-nginx"
+        networks:
+            - chatroom
+        ports:
+            - 8080:80
+    frontend:
+        build: ./react-frontend
+        image: "chatroom-frontend"
+        networks:
+            - chatroom
+    backend:
+        build: ./express-backend
+        image: "chatroom-backend"
+        networks:
+            - chatroom
+networks:
+    chatroom:

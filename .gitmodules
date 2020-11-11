@@ -1,0 +1,6 @@
+[submodule "react-frontend"]
+	path = react-frontend
+	url = https://github.com/kevinyu0506/chatroom-frontend.git
+[submodule "express-backend"]
+	path = express-backend
+	url = https://github.com/kevinyu0506/chatroom-backend.git
