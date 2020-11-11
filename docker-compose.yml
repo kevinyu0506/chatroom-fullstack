@@ -12,10 +12,14 @@ services:
         image: "chatroom-frontend"
         networks:
             - chatroom
+        ports:
+            - 8081:3000
     backend:
         build: ./express-backend
         image: "chatroom-backend"
         networks:
             - chatroom
+        ports:
+            - 8082:9000
 networks:
     chatroom:
